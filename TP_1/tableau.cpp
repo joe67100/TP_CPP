@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cstdlib>
 
+#include "tableau.hpp"
 
 // I.1.2 (avec pointeurs) - La fonction prend pour paramètres l'adresse mémoire de tableau[j] et tableau [j+1]
 void InverserValeurTableau(int *x, int *y) {
