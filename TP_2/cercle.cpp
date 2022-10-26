@@ -44,11 +44,11 @@ void Cercle::setCentre(const Point& _centre) {
 
 
 inline float Cercle::perimeter() const {
-	return M_PI * diametre;
+	return M_PI * static_cast<float>(diametre);
 }
 
 inline float Cercle::area() const {
-	return M_PI * powf((diametre / 2), 2);
+	return M_PI * pow((static_cast<float>(diametre) / 2), 2);
 }
 
 // Vérifie si le point passé en paramètre se trouve à l'intérieur du cercle
