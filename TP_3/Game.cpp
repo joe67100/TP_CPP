@@ -163,7 +163,7 @@ bool Game::isNumber(const std::string& s) const
 
 bool Game::isInputValid(const int input) const
 {
-	if (input > 0 && input < grid->getColumnsNumber())
+	if (input >= 0 && input < grid->getColumnsNumber())
 	{
 		return true;
 	}
