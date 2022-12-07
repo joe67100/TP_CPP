@@ -1,4 +1,4 @@
-// main.cpp : Ce fichier contient la fonction 'main'. L'exÃ©cution du programme commence et se termine Ã  cet endroit.
+// main.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
 //
 
 #include <iostream>
@@ -10,8 +10,8 @@
 #include "Game.h"
 #include "Grid.h"
 
-// VÃ©riifie si une chaine de caractÃ¨res est un nombre
-bool isInputNumber(const std::string& s) 
+// Vériifie si une chaine de caractères est un nombre
+bool isInputNumber(const std::string& s)
 {
 	return !s.empty() && std::all_of(s.begin(), s.end(), ::isdigit);
 }
@@ -38,7 +38,7 @@ void displayMenu()
 		} while (whichGame < 1 || whichGame > 3);
 
 
-		// Lancement des diffÃ©rents jeux en fonction du choix de l'utilisateur
+		// Lancement des différents jeux en fonction du choix de l'utilisateur
 		if (whichGame == 1)
 		{
 			std::cout.flush();
@@ -60,9 +60,9 @@ void displayMenu()
 	}
 }
 
-int main(const int argc, const char *argv[]) 
+int main(const int argc, const char* argv[])
 {
 	displayMenu();
-	
+
 	return 0;
 }

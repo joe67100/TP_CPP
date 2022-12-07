@@ -26,16 +26,24 @@ bool TicTacToe::isLineFull(const Player& _player) const
 {
 	for (int i = 0; i < LINES_NUMBER; i++)
 	{
-		return (grid[i][0] == _player.getId() && grid[i][1] == _player.getId() && grid[i][2] == _player.getId());
+		if ((grid[i][0] == _player.getId() && grid[i][1] == _player.getId() && grid[i][2] == _player.getId()))
+		{
+			return true;
+		}
 	}
+	return false;
 }
 
 bool TicTacToe::isColumnFull(const Player& _player) const
 {
 	for (int j = 0; j < COLUMNS_NUMBER; j++)
 	{
-		return (grid[0][j] == _player.getId() && grid[1][j] == _player.getId() && grid[2][j] == _player.getId());
+		if ((grid[0][j] == _player.getId() && grid[1][j] == _player.getId() && grid[2][j] == _player.getId()))
+		{
+			return true;
+		}
 	}
+	return false;
 }
 
 bool TicTacToe::isDiagonalFull(const Player& _player) const

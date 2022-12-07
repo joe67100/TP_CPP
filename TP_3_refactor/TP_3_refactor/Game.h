@@ -37,6 +37,11 @@ private:
 	bool isNumber(const std::string& s) const;
 	bool isInputValid(const int input) const;
 
+	// Vérification victoire 
+	bool isWinner(const Player& player) const;
+	bool isDraw(const Player& player1, const Player& player2) const;
+	
+	
 	// Grid
 	Grid* grid;
 };

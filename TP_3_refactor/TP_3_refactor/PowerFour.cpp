@@ -57,7 +57,7 @@ bool PowerFour::isColumnFull(const Player& _player) const
 
 bool PowerFour::isDiagonalFull(const Player& _player) const
 {
- 	for (int i = 0; i < LINES_NUMBER - 3; i++)
+	for (int i = 0; i < LINES_NUMBER - 3; i++)
 	{
 		for (int j = 0; j < COLUMNS_NUMBER - 3; j++)
 		{
@@ -67,7 +67,7 @@ bool PowerFour::isDiagonalFull(const Player& _player) const
 			}
 		}
 	}
-	
+
 	for (int i = COLUMNS_NUMBER - 1; i > 2; i--)
 	{
 		for (int j = 0; j < LINES_NUMBER - 3; j++)

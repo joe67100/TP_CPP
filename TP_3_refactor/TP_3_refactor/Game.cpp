@@ -7,6 +7,7 @@
 #include "Grid.h"
 #include "TicTacToe.h"
 #include "PowerFour.h"
+#include "GridState.h"
 
 Game::Game(Grid* _grid) : player1(ID_PLAYER_1), player2(ID_PLAYER_2), grid(_grid)
 {
@@ -17,7 +18,7 @@ Game::~Game()
 	delete grid;
 }
 
-void Game::init() 
+void Game::init()
 {
 	playersInformation();
 	gameInformation();
@@ -26,7 +27,7 @@ void Game::init()
 
 	bool playerPlayed = false;
 	bool closeGame = false;
-	while(!closeGame)
+	while (!closeGame)
 	{
 		for (int i = 1; i <= NUMBER_OF_PLAYERS; i++)
 		{
@@ -58,11 +59,11 @@ void Game::playersInformation()
 		std::string name;
 		std::cout << "Joueur " << i << ", veuillez indiquer votre nom : ";
 		std::cin >> name;
-		if (i == 1) 
+		if (i == 1)
 		{
 			player1.setName(name);
 		}
-		else 
+		else
 		{
 			player2.setName(name);
 		}
@@ -76,19 +77,19 @@ void Game::gameInformation() const
 
 bool Game::isGameFinished() const
 {
-	if (grid->isDraw(player1, player2))
+	if (isDraw(player1, player2))
 	{
 		std::cout << "Aucun gagnant ! Egalite parfaite." << std::endl;
 		std::cout << std::endl;
 		return true;
 	}
-	else if (grid->isWinner(player1))
+	else if (isWinner(player1))
 	{
 		std::cout << "Congrats ! " << player1.getName() << " remporte cette partie !" << std::endl;
 		std::cout << std::endl;
 		return true;
 	}
-	else if (grid->isWinner(player2))
+	else if (isWinner(player2))
 	{
 		std::cout << "Congrats ! " << player1.getName() << " remporte cette partie !" << std::endl;
 		std::cout << std::endl;
@@ -129,7 +130,7 @@ bool Game::playerPlays(const int _player)
 		}
 		return grid->addToken(_player, col);
 	}
-	else if (dynamic_cast<TicTacToe *>(grid) != 0)
+	else if (dynamic_cast<TicTacToe*>(grid) != 0)
 	{
 		int line = 0;
 		std::string inputLine;
@@ -168,4 +169,16 @@ bool Game::isInputValid(const int input) const
 		return true;
 	}
 	return false;
+}
+
+bool Game::isWinner(const Player& _player) const
+{
+	// Un joueur gagne si une colonne, une ligne ou une diagonale est complétée 
+	return (grid->isLineFull(_player) || grid->isColumnFull(_player) || grid->isDiagonalFull(_player));
+}
+
+bool Game::isDraw(const Player& _player1, const Player& _player2) const
+{
+	// Vérifier uniquement que la grille est pleine ne suffit pas. Il existe des cas où la grille est pleine avec un gagnant. 
+	return !isWinner(_player1) && !isWinner(_player2) && grid->isGridFull();
 }

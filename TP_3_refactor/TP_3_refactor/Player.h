@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-class Player 
+class Player
 {
 public:
 	Player(const int _id);
@@ -12,9 +12,9 @@ public:
 
 	inline std::string getName() const { return name; };
 	inline int getId() const { return id; };
-	
+
 	void setName(const std::string _name);
-	
+
 private:
 	const int id;
 	std::string name;
