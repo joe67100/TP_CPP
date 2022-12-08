@@ -7,7 +7,6 @@
 #include "Grid.h"
 #include "TicTacToe.h"
 #include "PowerFour.h"
-#include "GridState.h"
 
 Game::Game(Grid* _grid) : player1(ID_PLAYER_1), player2(ID_PLAYER_2), grid(_grid)
 {
