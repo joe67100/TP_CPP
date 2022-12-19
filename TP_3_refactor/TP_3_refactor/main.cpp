@@ -3,66 +3,82 @@
 
 #include <iostream>
 #include <string>
-#include <algorithm>
 #include <vector>
 
 #include "Player.h"
 #include "Game.h"
 #include "Grid.h"
 
-// Vériifie si une chaine de caractères est un nombre
-bool isInputNumber(const std::string& s)
+void Clear()
 {
-	return !s.empty() && std::all_of(s.begin(), s.end(), ::isdigit);
+#if defined _WIN32
+	system("cls");
+#elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
+	system("clear");
+#elif defined (__APPLE__)
+	system("clear");
+#endif
 }
 
-void displayMenu()
+std::string gameChoice()
 {
-	bool replay = true;
-	std::string input;
-	int whichGame = 0;
+	std::string userInput;
+	std::cout << "A quel jeu souhaitez-vous jouer ?" << std::endl;
+	std::cout << "1 - TicTacToe" << std::endl;
+	std::cout << "2 - Puissance 4" << std::endl;
+	std::cout << "3 - Je ne veux plus jouer" << std::endl;
+	std::cout << "-> ";
+	std::cin >> userInput;
 
-	while (replay)
+	while (!std::cin.good())
 	{
-		std::cout << "A quel jeu souhaitez-vous jouer ?" << std::endl;
-		std::cout << "1 - TicTacToe" << std::endl;
-		std::cout << "2 - Puissance 4" << std::endl;
-		std::cout << "3 - Je ne veux plus jouer" << std::endl;
-		do {
-			std::cout << "-> ";
-			std::cin >> input;
-			if (isInputNumber(input))
-			{
-				whichGame = std::atoi(input.c_str());
-			}
-		} while (whichGame < 1 || whichGame > 3);
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << "Input invalide... un peu d'effort" << std::endl;
+		std::cout << "-> ";
+		std::cin >> userInput;
+	}
+	return userInput;
+}
 
+void launchGame()
+{
+	std::string userInput = gameChoice();
 
-		// Lancement des différents jeux en fonction du choix de l'utilisateur
-		if (whichGame == 1)
-		{
-			std::cout.flush();
-			std::cout << " ########## TIC TAC TOE ##########" << std::endl;
-			Game game(new TicTacToe);
-		}
-		else if (whichGame == 2)
-		{
-			std::cout.flush();
-			std::cout << "########## POWER 4 ##########" << std::endl;
-			Game game(new PowerFour);
-		}
-		else
-		{
-			std::cout << std::endl;
-			std::cout << "Fin du programme. Fermeture" << std::endl;
-			replay = false;
-		}
+	// Lancement des différents jeux en fonction du choix de l'utilisateur
+	if (userInput == "1")
+	{
+		std::cout.flush();
+		std::cout << " ########## TIC TAC TOE ##########" << std::endl;
+		Game game(new TicTacToe);
+	}
+	else if (userInput == "2")
+	{
+		std::cout.flush();
+		std::cout << "########## POWER 4 ##########" << std::endl;
+		Game game(new PowerFour);
+	}
+	else if (userInput == "3")
+	{
+		std::cout << std::endl;
+		std::cout << "Fin du programme. Fermeture" << std::endl;
+		exit(0);
+	}
+	else
+	{
+		Clear();
+		std::cout << "Input invalide... Un peu d'effort" << std::endl;
+		std::cout << std::endl;
+		launchGame();
 	}
 }
 
 int main(const int argc, const char* argv[])
 {
-	displayMenu();
-
+	bool replay = true;
+	while (replay)
+	{ 
+		launchGame();
+	}
 	return 0;
 }

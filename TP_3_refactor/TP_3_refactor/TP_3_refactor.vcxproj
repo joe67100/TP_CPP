@@ -21,7 +21,6 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Grid.cpp" />
-    <ClCompile Include="GridState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PowerFour.cpp" />
@@ -30,7 +29,6 @@
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="Grid.h" />
-    <ClInclude Include="GridState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PowerFour.h" />
     <ClInclude Include="TicTacToe.h" />
