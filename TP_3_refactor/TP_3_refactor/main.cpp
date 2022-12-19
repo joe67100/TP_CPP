@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 
 #include "Player.h"
 #include "Game.h"
@@ -13,7 +12,7 @@ void Clear()
 {
 #if defined _WIN32
 	system("cls");
-#elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
+#elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__lin ux__)
 	system("clear");
 #elif defined (__APPLE__)
 	system("clear");
