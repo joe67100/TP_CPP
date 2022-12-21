@@ -150,6 +150,31 @@ bool Game::playerPlays(const int _player)
 		}
 		return grid->addToken(_player, col, line);
 	}
+	else if (dynamic_cast<Othello*>(grid) != 0)
+	{
+		int line = 0;
+		std::string inputLine;
+
+		std::cout << name << ", veuillez renseigner une ligne : ";
+		std::cin >> inputLine;
+		std::cout << std::endl;
+		std::cout << "Veuillez renseigner une colonne : ";
+		std::cin >> inputCol;
+		std::cout << std::endl;
+
+		if (!isNumber(inputLine) || !isNumber(inputCol))
+		{
+			return false;
+		}
+		line = std::atoi(inputLine.c_str());
+		col = std::atoi(inputCol.c_str());
+
+		if (!isInputValid(line) || !isInputValid(col))
+		{
+			return false;
+		}
+		return grid->addToken(_player, col, line);
+	}
 }
 
 bool Game::isNumber(const std::string& s) const
