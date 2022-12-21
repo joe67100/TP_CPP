@@ -25,7 +25,8 @@ std::string gameChoice()
 	std::cout << "A quel jeu souhaitez-vous jouer ?" << std::endl;
 	std::cout << "1 - TicTacToe" << std::endl;
 	std::cout << "2 - Puissance 4" << std::endl;
-	std::cout << "3 - Je ne veux plus jouer..." << std::endl;
+	std::cout << "3 - Othello" << std::endl;
+	std::cout << "4 - Je ne veux plus jouer..." << std::endl;
 	std::cout << "-> ";
 	std::cin >> userInput;
 
@@ -56,6 +57,11 @@ void launchGame()
 		Game game(new PowerFour);
 	}
 	else if (userInput == "3")
+	{
+		std::cout << "########## OTHELLO ##########" << std::endl;
+		Game game(new Othello);
+	}
+	else if (userInput == "4")
 	{
 		std::cout << std::endl;
 		std::cout << "Fin du programme. Fermeture" << std::endl;

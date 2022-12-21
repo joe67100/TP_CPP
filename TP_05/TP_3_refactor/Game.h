@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "TicTacToe.h"
 #include "PowerFour.h"
+#include "Othello.h"
 
 class Game
 {

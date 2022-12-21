@@ -22,6 +22,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Othello.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PowerFour.cpp" />
     <ClCompile Include="TicTacToe.cpp" />
@@ -29,6 +30,7 @@
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="Grid.h" />
+    <ClInclude Include="Othello.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PowerFour.h" />
     <ClInclude Include="TicTacToe.h" />
@@ -39,6 +41,7 @@
     <ProjectGuid>{2d20b42f-da62-4b23-a0c6-1c0774569d9b}</ProjectGuid>
     <RootNamespace>TP3refactor</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>TP_5</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
