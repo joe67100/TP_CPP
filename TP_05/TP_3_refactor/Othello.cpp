@@ -18,9 +18,9 @@ bool Othello::addToken(const int _playerId, const int _column, const int _lines)
 	if (isValidMove(_column, _lines, _playerId))
 	{
 		grid[_lines][_column] = _playerId;
+		// flipping(_column, _lines, _playerId);
 		return true;
 	}
-	std::cout << "Not a valid move !" << std::endl;
 	return false;
 }
 
@@ -138,4 +138,9 @@ bool Othello::isValidMove(int x, int y, const Player& _player)
 		return true;
 	}
 	return false;
+}
+
+void Othello::flipping(int x, int y, const Player& _player)
+{
+	// TODO : implement
 }
