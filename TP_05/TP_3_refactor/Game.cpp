@@ -194,7 +194,12 @@ bool Game::isInputValid(const int input) const
 bool Game::isWinner(const Player& _player) const
 {
 	// Un joueur gagne si une colonne, une ligne ou une diagonale est complétée 
-	return (grid->isLineFull(_player) || grid->isColumnFull(_player) || grid->isDiagonalFull(_player));
+	// par des jetons de sa couleur (sauf pour le Puissance 4 où il faut aligner 4 jetons).
+	// et sauf pour le Othello
+	if (!dynamic_cast<Othello*>(grid) != 0) {
+		return (grid->isLineFull(_player) || grid->isColumnFull(_player) || grid->isDiagonalFull(_player));
+	}
+	return false;
 }
 
 bool Game::isDraw(const Player& _player1, const Player& _player2) const
