@@ -18,7 +18,7 @@ public:
 	bool virtual addToken(const int _playerId, const int _column, const int _line = NO_LINES) = 0;
 
 	inline int getColumnsNumber() { return COLUMNS_NUMBER; };
-	inline int getLinesNumer() { return LINES_NUMBER; };
+	inline int getLinesNumber() { return LINES_NUMBER; };
 
 	// Boolean
 	bool isCaseEmpty(const int _line, const int _column) const;
