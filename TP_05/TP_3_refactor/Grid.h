@@ -19,6 +19,7 @@ public:
 
 	inline int getColumnsNumber() { return COLUMNS_NUMBER; };
 	inline int getLinesNumber() { return LINES_NUMBER; };
+	int getNumberOfTokens(const Player& _player);
 
 	// Boolean
 	bool isCaseEmpty(const int _line, const int _column) const;
