@@ -51,6 +51,22 @@ void Grid::displayGrid() const
 	std::cout << std::endl;
 }
 
+int Grid::getNumberOfTokens(const Player& _player)
+{
+	int numberOfTokens = 0;
+	for (int i = 0; i < LINES_NUMBER; i++)
+	{
+		for (int j = 0; j < COLUMNS_NUMBER; j++)
+		{
+			if (grid[i][j] == _player.getId())
+			{
+				numberOfTokens++;
+			}
+		}
+	}
+	return numberOfTokens;
+}
+
 bool Grid::isCaseEmpty(const int _line, const int _column) const
 {
 	// == 0 car le vecteur est initialisé à 0
