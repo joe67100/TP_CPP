@@ -2,9 +2,6 @@
 #include <vector>
 
 #include "Grid.h"
-#include "Player.h"
-#include "TicTacToe.h"
-#include "PowerFour.h"
 
 Grid::Grid(const int _LINES_NUMBER, const int _COLUMNS_NUMBER) : LINES_NUMBER(_LINES_NUMBER), COLUMNS_NUMBER(_COLUMNS_NUMBER)
 {

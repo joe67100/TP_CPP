@@ -2,15 +2,12 @@
 #include <string>
 #include <iostream>
 
-#include "PowerFour.h"
+#include "Othello.h"
 
-PowerFour::PowerFour() : Grid(4, 7)
+Othello::Othello() : Grid(8, 8)
 {}
 
-PowerFour::~PowerFour()
-{}
-
-bool PowerFour::addToken(const int _playId, const int _column, const int _line)
+bool Othello::addToken(const int _playId, const int _column, const int _line)
 {
 	for (int i = LINES_NUMBER - 1; i >= 0; i--)
 	{
@@ -23,7 +20,7 @@ bool PowerFour::addToken(const int _playId, const int _column, const int _line)
 	return false;
 }
 
-bool PowerFour::isLineFull(const Player& _player) const
+bool Othello::isLineFull(const Player& _player) const
 {
 	for (int i = 0; i < LINES_NUMBER; i++)
 	{
@@ -38,7 +35,7 @@ bool PowerFour::isLineFull(const Player& _player) const
 	return false;
 }
 
-bool PowerFour::isColumnFull(const Player& _player) const
+bool Othello::isColumnFull(const Player& _player) const
 {
 	for (int j = 0; j < COLUMNS_NUMBER; j++)
 	{
@@ -53,7 +50,7 @@ bool PowerFour::isColumnFull(const Player& _player) const
 	return false;
 }
 
-bool PowerFour::isDiagonalFull(const Player& _player) const
+bool Othello::isDiagonalFull(const Player& _player) const
 {
 	for (int i = 0; i < LINES_NUMBER - 3; i++)
 	{

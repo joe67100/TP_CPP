@@ -2,9 +2,7 @@
 #include <string>
 #include <iostream>
 
-#include "Grid.h"
 #include "TicTacToe.h"
-#include "Player.h"
 
 TicTacToe::TicTacToe() : Grid(3, 3)
 {}

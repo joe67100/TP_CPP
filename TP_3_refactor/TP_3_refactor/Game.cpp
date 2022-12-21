@@ -2,11 +2,7 @@
 #include <string>
 #include <algorithm>
 
-#include "Player.h"
 #include "Game.h"
-#include "Grid.h"
-#include "TicTacToe.h"
-#include "PowerFour.h"
 
 Game::Game(Grid* _grid) : player1(ID_PLAYER_1), player2(ID_PLAYER_2), grid(_grid)
 {
