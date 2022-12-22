@@ -105,20 +105,21 @@ bool Game::playerPlays(const int _player)
 		name = player2.getName();
 	}
 
-	int col = 0;
-	std::string inputCol;
+	int col;
+	int line;
 
 	if (dynamic_cast<PowerFour*>(grid) != 0)
 	{
 		std::cout << name << ", veuillez renseigner une colonne : ";
-		std::cin >> inputCol;
+		std::cin >> col;
 
-		if (!isNumber(inputCol))
-		{
-			return false;
+		while (!std::cin.good()) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << name << ", veuillez renseigner une colonne : ";
+			std::cin >> col;
 		}
-		col = std::atoi(inputCol.c_str());
-
+		
 		if (!isInputValid(col))
 		{
 			return false;
@@ -127,22 +128,26 @@ bool Game::playerPlays(const int _player)
 	}
 	else if (dynamic_cast<TicTacToe*>(grid) != 0)
 	{
-		int line = 0;
-		std::string inputLine;
-
+		
 		std::cout << name << ", veuillez renseigner une ligne : ";
-		std::cin >> inputLine;
+		std::cin >> line;
+		while (!std::cin.good()) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << name << ", veuillez renseigner une ligne : ";
+			std::cin >> line;
+		}
 		std::cout << std::endl;
 		std::cout << "Veuillez renseigner une colonne : ";
-		std::cin >> inputCol;
-		std::cout << std::endl;
-
-		if (!isNumber(inputLine) || !isNumber(inputCol))
-		{
-			return false;
+		std::cin >> col;
+		while (!std::cin.good()) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Veuillez renseigner une colonne : ";
+			std::cin >> col;
 		}
-		line = std::atoi(inputLine.c_str());
-		col = std::atoi(inputCol.c_str());
+		std::cout << std::endl;
+	
 
 		if (!isInputValid(line) || !isInputValid(col))
 		{
@@ -152,22 +157,32 @@ bool Game::playerPlays(const int _player)
 	}
 	else if (dynamic_cast<Othello*>(grid) != 0)
 	{
-		int line = 0;
-		std::string inputLine;
-
 		std::cout << name << ", veuillez renseigner une ligne : ";
-		std::cin >> inputLine;
+		std::cin >> line;
 		std::cout << std::endl;
 		std::cout << "Veuillez renseigner une colonne : ";
-		std::cin >> inputCol;
+		std::cin >> col;
 		std::cout << std::endl;
 
-		if (!isNumber(inputLine) || !isNumber(inputCol))
-		{
-			return false;
+		std::cout << name << ", veuillez renseigner une ligne : ";
+		std::cin >> line;
+		while (!std::cin.good()) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << name << ", veuillez renseigner une ligne : ";
+			std::cin >> line;
 		}
-		line = std::atoi(inputLine.c_str());
-		col = std::atoi(inputCol.c_str());
+		std::cout << std::endl;
+		std::cout << "Veuillez renseigner une colonne : ";
+		std::cin >> col;
+		
+		while (!std::cin.good()) {
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << "Veuillez renseigner une colonne : ";
+			std::cin >> col;
+		}
+		std::cout << std::endl;
 
 		if (!isInputValid(line) || !isInputValid(col))
 		{
