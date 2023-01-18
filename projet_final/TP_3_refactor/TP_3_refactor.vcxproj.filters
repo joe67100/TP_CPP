@@ -13,48 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Grid">
+      <UniqueIdentifier>{1fdb7637-4602-4f5c-97b8-b61be7d0e3c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{34a5862c-927e-4680-802d-3dd97d01cdb1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Grid.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="PowerFour.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="TicTacToeGrid.cpp">
+      <Filter>Grid</Filter>
     </ClCompile>
-    <ClCompile Include="TicTacToe.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="PowerFourGrid.cpp">
+      <Filter>Grid</Filter>
     </ClCompile>
-    <ClCompile Include="Othello.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="OthelloGrid.cpp">
+      <Filter>Grid</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>Grid</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Grid.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="PowerFour.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="TicTacToeGrid.h">
+      <Filter>Grid</Filter>
     </ClInclude>
-    <ClInclude Include="TicTacToe.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="PowerFourGrid.h">
+      <Filter>Grid</Filter>
     </ClInclude>
-    <ClInclude Include="Othello.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="OthelloGrid.h">
+      <Filter>Grid</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>Grid</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
