@@ -108,7 +108,7 @@ bool Game::playerPlays(const int _player)
 	int col;
 	int line;
 
-	if (dynamic_cast<PowerFour*>(grid) != 0)
+	if (dynamic_cast<PowerFourGrid*>(grid) != 0)
 	{
 		std::cout << name << ", veuillez renseigner une colonne : ";
 		std::cin >> col;
@@ -126,7 +126,7 @@ bool Game::playerPlays(const int _player)
 		}
 		return grid->addToken(_player, col);
 	}
-	else if (dynamic_cast<TicTacToe*>(grid) != 0)
+	else if (dynamic_cast<TicTacToeGrid*>(grid) != 0)
 	{
 		
 		std::cout << name << ", veuillez renseigner une ligne : ";
@@ -155,7 +155,7 @@ bool Game::playerPlays(const int _player)
 		}
 		return grid->addToken(_player, col, line);
 	}
-	else if (dynamic_cast<Othello*>(grid) != 0)
+	else if (dynamic_cast<OthelloGrid*>(grid) != 0)
 	{
 		std::cout << name << ", veuillez renseigner une ligne : ";
 		std::cin >> line;
@@ -211,7 +211,7 @@ bool Game::isWinner(const Player& _player) const
 	// Un joueur gagne si une colonne, une ligne ou une diagonale est complétée 
 	// par des jetons de sa couleur (sauf pour le Puissance 4 où il faut aligner 4 jetons).
 	// et sauf pour le Othello
-	if (!dynamic_cast<Othello*>(grid) != 0) {
+	if (!dynamic_cast<OthelloGrid*>(grid) != 0) {
 		return (grid->isLineFull(_player) || grid->isColumnFull(_player) || grid->isDiagonalFull(_player));
 	}
 	return false;

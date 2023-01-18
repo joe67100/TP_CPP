@@ -6,9 +6,9 @@
 #include <algorithm>
 
 #include "Player.h"
-#include "TicTacToe.h"
-#include "PowerFour.h"
-#include "Othello.h"
+#include "TicTacToeGrid.h"
+#include "PowerFourGrid.h"
+#include "OthelloGrid.h"
 
 class Game
 {

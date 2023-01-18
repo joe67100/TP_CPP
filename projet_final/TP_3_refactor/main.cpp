@@ -49,17 +49,17 @@ void launchGame()
 	if (userInput == "1")
 	{
 		std::cout << " ########## TIC TAC TOE ##########" << std::endl;
-		Game game(new TicTacToe);
+		Game game(new TicTacToeGrid);
 	}
 	else if (userInput == "2")
 	{
 		std::cout << "########## POWER 4 ##########" << std::endl;
-		Game game(new PowerFour);
+		Game game(new PowerFourGrid);
 	}
 	else if (userInput == "3")
 	{
 		std::cout << "########## OTHELLO ##########" << std::endl;
-		Game game(new Othello);
+		Game game(new OthelloGrid);
 	}
 	else if (userInput == "4")
 	{
