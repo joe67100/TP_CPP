@@ -15,10 +15,12 @@ OthelloGrid::~OthelloGrid()
 
 bool OthelloGrid::setToken(const int _playerId, const int _column, const int _lines)
 {
-	if (isValidMove(_column, _lines, _playerId))
+	if (isCaseEmpty(_lines, _column))
 	{
 		grid[_lines][_column] = _playerId;
-		// flipping(_column, _lines, _playerId);
+		flippingColumn(_column, _lines, _playerId);
+		flippingLine(_column, _lines, _playerId);
+		flippingDiagonal(_column, _lines, _playerId);
 		return true;
 	}
 	return false;
@@ -99,7 +101,110 @@ bool OthelloGrid::isValidMove(int x, int y, const Player& _player)
 	return false;
 }
 
-void OthelloGrid::flipping(int x, int y, const Player& _player)
+void OthelloGrid::flippingColumn(int x, int y, const Player& _player)
 {
-	// TODO : implement
+	int i = 1;
+	while (x + i < 8 && grid[x + i][y] != 0 && grid[x + i][y] != _player.getId())
+	{
+		i++;
+	}
+	if (x + i < 8 && grid[x + i][y] == _player.getId())
+	{
+		for (int j = 1; j < i; j++)
+		{
+			grid[x + j][y] = _player.getId();
+		}
+	}
+	i = 1;
+	while (x - i >= 0 && grid[x - i][y] != 0 && grid[x - i][y] != _player.getId())
+	{
+		i++;
+	}
+	if (x - i >= 0 && grid[x - i][y] == _player.getId())
+	{
+		for (int j = 1; j < i; j++)
+		{
+			grid[x - j][y] = _player.getId();
+		}
+	}
+}
+
+void OthelloGrid::flippingDiagonal(int x, int y, const Player& _player)
+{
+	int i = 1;
+	while (x + i < 8 && y + i < 8 && grid[x + i][y + i] != 0 && grid[x + i][y + i] != _player.getId())
+	{
+		i++;
+	}
+	if (x + i < 8 && y + i < 8 && grid[x + i][y + i] == _player.getId())
+	{
+		for (int j = 1; j < i; j++)
+		{
+			grid[x + j][y + j] = _player.getId();
+		}
+	}
+	i = 1;
+	while (x - i >= 0 && y - i >= 0 && grid[x - i][y - i] != 0 && grid[x - i][y - i] != _player.getId())
+	{
+		i++;
+	}
+	if (x - i >= 0 && y - i >= 0 && grid[x - i][y - i] == _player.getId())
+	{
+		for (int j = 1; j < i; j++)
+		{
+			grid[x - j][y - j] = _player.getId();
+		}
+	}
+	i = 1;
+	while (x + i < 8 && y - i >= 0 && grid[x + i][y - i] != 0 && grid[x + i][y - i] != _player.getId())
+	{
+		i++;
+	}
+	if (x + i < 8 && y - i >= 0 && grid[x + i][y - i] == _player.getId())
+	{
+		for (int j = 1; j < i; j++)
+		{
+			grid[x + j][y - j] = _player.getId();
+		}
+	}
+	i = 1;
+	while (x - i >= 0 && y + i < 8 && grid[x - i][y + i] != 0 && grid[x - i][y + i] != _player.getId())
+	{
+		i++;
+	}
+	if (x - i >= 0 && y + i < 8 && grid[x - i][y + i] == _player.getId())
+	{
+		for (int j = 1; j < i; j++)
+		{
+			grid[x - j][y + j] = _player.getId();
+		}
+	}
+}
+
+void OthelloGrid::flippingLine(int x, int y, const Player& _player)
+{
+	int i = 1;
+	while (y + i < 8 && grid[x][y + i] != 0 && grid[x][y + i] != _player.getId())
+	{
+		i++;
+	}
+	if (y + i < 8 && grid[x][y + i] == _player.getId())
+	{
+		for (int j = 1; j < i; j++)
+		{
+			grid[x][y + j] = _player.getId();
+		}
+	}
+	i = 1;
+	while (y - i >= 0 && grid[x][y - i] != 0 && grid[x][y - i] != _player.getId())
+	{
+		i++;
+	}
+	if (y - i >= 0 && grid[x][y - i] == _player.getId())
+	{
+		for (int j = 1; j < i; j++)
+		{
+			grid[x][y - j] = _player.getId();
+		}
+	}
 }
