@@ -39,6 +39,9 @@ private:
 	// Vérification victoire 
 	bool isWinner(const Player& player) const;
 	bool isDraw(const Player& player1, const Player& player2) const;
+
+	int askColumn(std::string name);
+	int askLine(std::string name);
 	
 	
 	// Grid
