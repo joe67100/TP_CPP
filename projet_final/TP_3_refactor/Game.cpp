@@ -112,15 +112,7 @@ bool Game::playerPlays(const int _player)
 
 	if (dynamic_cast<PowerFourGrid*>(grid) != 0)
 	{
-		std::cout << name << ", veuillez renseigner une colonne : ";
-		std::cin >> col;
-
-		while (!std::cin.good()) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << name << ", veuillez renseigner une colonne : ";
-			std::cin >> col;
-		}
+		col = askColumn(name);
 		
 		if (!isInputValid(col))
 		{
@@ -130,27 +122,9 @@ bool Game::playerPlays(const int _player)
 	}
 	else if (dynamic_cast<TicTacToeGrid*>(grid) != 0)
 	{
+		line = askLine(name);
+		col = askColumn(name);
 		
-		std::cout << name << ", veuillez renseigner une ligne : ";
-		std::cin >> line;
-		while (!std::cin.good()) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << name << ", veuillez renseigner une ligne : ";
-			std::cin >> line;
-		}
-		std::cout << std::endl;
-		std::cout << "Veuillez renseigner une colonne : ";
-		std::cin >> col;
-		while (!std::cin.good()) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Veuillez renseigner une colonne : ";
-			std::cin >> col;
-		}
-		std::cout << std::endl;
-	
-
 		if (!isInputValid(line) || !isInputValid(col))
 		{
 			return false;
@@ -159,26 +133,9 @@ bool Game::playerPlays(const int _player)
 	}
 	else if (dynamic_cast<OthelloGrid*>(grid) != 0)
 	{
-		std::cout << name << ", veuillez renseigner une ligne : ";
-		std::cin >> line;
-		while (!std::cin.good()) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << name << ", veuillez renseigner une ligne : ";
-			std::cin >> line;
-		}
-		std::cout << std::endl;
-		std::cout << "Veuillez renseigner une colonne : ";
-		std::cin >> col;
+		line = askLine(name);
+		col = askColumn(name);
 		
-		while (!std::cin.good()) {
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Veuillez renseigner une colonne : ";
-			std::cin >> col;
-		}
-		std::cout << std::endl;
-
 		if (!isInputValid(line) || !isInputValid(col))
 		{
 			return false;
@@ -216,4 +173,39 @@ bool Game::isDraw(const Player& _player1, const Player& _player2) const
 {
 	// Vérifier uniquement que la grille est pleine ne suffit pas. Il existe des cas où la grille est pleine avec un gagnant. 
 	return !isWinner(_player1) && !isWinner(_player2) && grid->isGridFull();
+}
+
+int Game::askLine(std::string name) {
+
+	int line;
+	
+	std::cout << name << ", veuillez renseigner une ligne : ";
+	std::cin >> line;
+	while (!std::cin.good()) {
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << name << ", veuillez renseigner une ligne : ";
+		std::cin >> line;
+	}
+	std::cout << std::endl;
+
+	return line;
+}
+
+int Game::askColumn(std::string name) {
+
+	int col;
+
+	std::cout << name << ", veuillez renseigner une colonne : ";
+	std::cin >> col;
+
+	while (!std::cin.good()) {
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::cout << name << ", veuillez renseigner une colonne : ";
+		std::cin >> col;
+	}
+	std::cout << std::endl;
+
+	return col;
 }
