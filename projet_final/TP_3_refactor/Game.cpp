@@ -15,7 +15,9 @@ Game::~Game()
 
 void Game::init()
 {
-	playersInformation();
+	if (player1.getName().empty()) {
+		playersInformation();
+	}
 	gameInformation();
 
 	grid->displayGrid();
