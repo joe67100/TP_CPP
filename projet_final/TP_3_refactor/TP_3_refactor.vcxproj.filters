@@ -19,9 +19,6 @@
     <Filter Include="Game">
       <UniqueIdentifier>{34a5862c-927e-4680-802d-3dd97d01cdb1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="QT">
-      <UniqueIdentifier>{2510d573-c341-46ba-87e9-08c4dbcca8fb}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Player.cpp">
@@ -42,11 +39,8 @@
     <ClCompile Include="Grid.cpp">
       <Filter>Grid</Filter>
     </ClCompile>
-    <ClCompile Include="GameElement.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>QT</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
