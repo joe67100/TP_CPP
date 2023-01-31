@@ -9,6 +9,7 @@
 #include "TicTacToeGrid.h"
 #include "PowerFourGrid.h"
 #include "OthelloGrid.h"
+#include "CheckersGrid.h"
 
 class Game
 {
