@@ -15,7 +15,7 @@ public:
 
 	void init();
 	void displayGrid() const;
-	bool virtual addToken(const int _playerId, const int _column, const int _line = NO_LINES) = 0;
+	bool virtual setToken(const int _playerId, const int _column, const int _line = NO_LINES) = 0;
 
 	inline int getColumnsNumber() { return COLUMNS_NUMBER; };
 	inline int getLinesNumber() { return LINES_NUMBER; };

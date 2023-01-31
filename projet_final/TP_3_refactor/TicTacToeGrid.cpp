@@ -10,7 +10,7 @@ TicTacToeGrid::TicTacToeGrid() : Grid(3, 3)
 TicTacToeGrid::~TicTacToeGrid()
 {}
 
-bool TicTacToeGrid::addToken(const int _playerId, const int _column, const int _line)
+bool TicTacToeGrid::setToken(const int _playerId, const int _column, const int _line)
 {
 	if (isCaseEmpty(_line, _column))
 	{

@@ -10,7 +10,7 @@ PowerFourGrid::PowerFourGrid() : Grid(4, 7)
 PowerFourGrid::~PowerFourGrid()
 {}
 
-bool PowerFourGrid::addToken(const int _playId, const int _column, const int _line)
+bool PowerFourGrid::setToken(const int _playId, const int _column, const int _line)
 {
 	for (int i = LINES_NUMBER - 1; i >= 0; i--)
 	{

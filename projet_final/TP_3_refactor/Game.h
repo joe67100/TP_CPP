@@ -26,8 +26,8 @@ private:
 	// Fonction qui permet de lancer le jeu
 	void init();
 
-	void playersInformation();
-	void gameInformation() const;
+	void initPlayers();
+	void displayPlayers() const;
 
 	bool playerPlays(const int player);
 	bool isGameFinished() const;

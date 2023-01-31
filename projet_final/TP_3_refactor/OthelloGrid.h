@@ -17,7 +17,7 @@ private:
 	bool isValidMove(int x, int y, const Player& _player);
 	void initOthello();
 	void flipping(int x, int y, const Player& _player);
-	bool addToken(const int _playerId, const int _column, const int _lines = NO_LINES) override;
+	bool setToken(const int _playerId, const int _column, const int _lines = NO_LINES) override;
 };
 
 #endif // !OTHELLO_H

@@ -16,9 +16,9 @@ Game::~Game()
 void Game::init()
 {
 	if (player1.getName().empty()) {
-		playersInformation();
+		initPlayers();
 	}
-	gameInformation();
+	displayPlayers();
 
 	grid->displayGrid();
 
@@ -48,7 +48,7 @@ void Game::init()
 	}
 }
 
-void Game::playersInformation()
+void Game::initPlayers()
 {
 	std::cout << std::endl;
 	for (int i = 1; i <= NUMBER_OF_PLAYERS; i++)
@@ -66,7 +66,7 @@ void Game::playersInformation()
 		}
 	}
 }
-void Game::gameInformation() const
+void Game::displayPlayers() const
 {
 	std::cout << std::endl;
 	std::cout << "Joueur 1 : " << player1.getName() << " (X)" << " - " << "Joueur 2 : " << player2.getName() << " (O)" << std::endl;

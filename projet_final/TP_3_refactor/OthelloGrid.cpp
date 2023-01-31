@@ -13,7 +13,7 @@ OthelloGrid::~OthelloGrid()
 {
 }
 
-bool OthelloGrid::addToken(const int _playerId, const int _column, const int _lines)
+bool OthelloGrid::setToken(const int _playerId, const int _column, const int _lines)
 {
 	if (isValidMove(_column, _lines, _playerId))
 	{
