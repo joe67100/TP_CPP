@@ -161,13 +161,6 @@ bool Game::playerPlays(const int _player)
 	{
 		std::cout << name << ", veuillez renseigner une ligne : ";
 		std::cin >> line;
-		std::cout << std::endl;
-		std::cout << "Veuillez renseigner une colonne : ";
-		std::cin >> col;
-		std::cout << std::endl;
-
-		std::cout << name << ", veuillez renseigner une ligne : ";
-		std::cin >> line;
 		while (!std::cin.good()) {
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
