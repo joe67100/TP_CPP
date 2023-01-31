@@ -19,7 +19,7 @@ void Clear()
 #endif
 }
 
-std::string gameChoice()
+std::string chooseGame()
 {
 	std::string userInput;
 	std::cout << "A quel jeu souhaitez-vous jouer ?" << std::endl;
@@ -43,7 +43,7 @@ std::string gameChoice()
 
 void launchGame()
 {
-	std::string userInput = gameChoice();
+	std::string userInput = chooseGame();
 
 	// Lancement des différents jeux en fonction du choix de l'utilisateur
 	if (userInput == "1")
