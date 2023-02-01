@@ -8,10 +8,8 @@ Game::Game(Grid* _grid) : player1(ID_PLAYER_1), player2(ID_PLAYER_2), grid(_grid
 {
 	init();
 }
-Game::~Game()
-{
-	delete grid;
-}
+
+Game::~Game() = default;
 
 void Game::init()
 {
@@ -110,7 +108,7 @@ bool Game::playerPlays(const int _player)
 	int col;
 	int line;
 
-	if (dynamic_cast<PowerFourGrid*>(grid) != 0)
+	if (std::dynamic_pointer_cast<PowerFourGrid>(grid) != nullptr)
 	{
 		col = askColumn(name);
 		
@@ -120,7 +118,7 @@ bool Game::playerPlays(const int _player)
 		}
 		return grid->setToken(_player, Token(col));
 	}
-	else if (dynamic_cast<TicTacToeGrid*>(grid) != 0)
+	else if (std::dynamic_pointer_cast<TicTacToeGrid>(grid) != nullptr)
 	{
 		line = askLine(name);
 		col = askColumn(name);
@@ -131,7 +129,7 @@ bool Game::playerPlays(const int _player)
 		}
 		return grid->setToken(_player, Token(col, line));
 	}
-	else if (dynamic_cast<OthelloGrid*>(grid) != 0)
+	else if (std::dynamic_pointer_cast<OthelloGrid>(grid) != nullptr)
 	{
 		line = askLine(name);
 		col = askColumn(name);
@@ -163,7 +161,7 @@ bool Game::isWinner(const Player& _player) const
 	// Un joueur gagne si une colonne, une ligne ou une diagonale est complétée 
 	// par des jetons de sa couleur (sauf pour le Puissance 4 où il faut aligner 4 jetons).
 	// et sauf pour le Othello
-	if (!dynamic_cast<OthelloGrid*>(grid) != 0) {
+	if (std::dynamic_pointer_cast<OthelloGrid>(grid) == nullptr) {
 		return (grid->isLineFull(_player) || grid->isColumnFull(_player) || grid->isDiagonalFull(_player));
 	}
 	return false;

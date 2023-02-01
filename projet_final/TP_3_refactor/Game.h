@@ -46,7 +46,7 @@ private:
 	
 	
 	// Grid
-	Grid* grid;
+	std::shared_ptr<Grid> grid;
 };
 
 #endif // !GAME_H
