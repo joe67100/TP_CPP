@@ -19,7 +19,7 @@ private:
 	void flippingLine(int x, int y, const Player& _player);
 	void flippingColumn(int x, int y, const Player& _player);
 	void flippingDiagonal(int x, int y, const Player& _player);
-	bool setToken(const int _playerId, const int _column, const int _lines = NO_LINES) override;
+	bool setToken(const int _playerId, const Token& _token) override;
 };
 
 #endif // !OTHELLO_H

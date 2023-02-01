@@ -18,7 +18,7 @@ private:
 	bool isColumnFull(const Player& _player) const override;
 	bool isDiagonalFull(const Player& _player) const override;
 
-	bool setToken(const int _playerId, const int _column, const int _line) override;
+	bool setToken(const int _playerId, const Token& _token) override;
 };
 
 

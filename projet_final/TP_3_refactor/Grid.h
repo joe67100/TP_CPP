@@ -7,6 +7,12 @@
 
 #include "Player.h"
 
+struct Token {
+	int column;
+	int line;
+	Token(int _column, int _line = 0) : column(_column), line(_line) {}
+};
+
 class Grid
 {
 public:
@@ -15,7 +21,7 @@ public:
 
 	void init();
 	void displayGrid() const;
-	bool virtual setToken(const int _playerId, const int _column, const int _line = NO_LINES) = 0;
+	bool virtual setToken(const int _playerId, const Token& _token) = 0;
 
 	inline int getColumnsNumber() { return COLUMNS_NUMBER; };
 	inline int getLinesNumber() { return LINES_NUMBER; };

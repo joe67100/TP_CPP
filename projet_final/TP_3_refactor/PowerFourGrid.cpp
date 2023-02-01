@@ -10,13 +10,12 @@ PowerFourGrid::PowerFourGrid() : Grid(4, 7)
 PowerFourGrid::~PowerFourGrid()
 {}
 
-bool PowerFourGrid::setToken(const int _playId, const int _column, const int _line)
+bool PowerFourGrid::setToken(const int _playerId, const Token& _token)
 {
-	for (int i = LINES_NUMBER - 1; i >= 0; i--)
-	{
-		if (isCaseEmpty(i, _column))
+	for (int i = LINES_NUMBER - 1; i >= 0; i--) {
+		if (isCaseEmpty(_token.line, _token.column))
 		{
-			grid[i][_column] = _playId;
+			grid[_token.line][_token.column] = _playerId;
 			return true;
 		}
 	}

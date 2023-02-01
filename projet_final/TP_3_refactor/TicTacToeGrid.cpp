@@ -10,11 +10,11 @@ TicTacToeGrid::TicTacToeGrid() : Grid(3, 3)
 TicTacToeGrid::~TicTacToeGrid()
 {}
 
-bool TicTacToeGrid::setToken(const int _playerId, const int _column, const int _line)
+bool TicTacToeGrid::setToken(const int _playerId, const Token& _token)
 {
-	if (isCaseEmpty(_line, _column))
+	if (isCaseEmpty(_token.line, _token.column))
 	{
-		grid[_line][_column] = _playerId;
+		grid[_token.line][_token.column] = _playerId;
 		return true;
 	}
 	return false;

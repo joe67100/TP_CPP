@@ -118,7 +118,7 @@ bool Game::playerPlays(const int _player)
 		{
 			return false;
 		}
-		return grid->setToken(_player, col);
+		return grid->setToken(_player, Token(col));
 	}
 	else if (dynamic_cast<TicTacToeGrid*>(grid) != 0)
 	{
@@ -129,7 +129,7 @@ bool Game::playerPlays(const int _player)
 		{
 			return false;
 		}
-		return grid->setToken(_player, col, line);
+		return grid->setToken(_player, Token(col, line));
 	}
 	else if (dynamic_cast<OthelloGrid*>(grid) != 0)
 	{
@@ -140,7 +140,7 @@ bool Game::playerPlays(const int _player)
 		{
 			return false;
 		}
-		return grid->setToken(_player, col, line);
+		return grid->setToken(_player, Token(col, line));
 	}
 }
 

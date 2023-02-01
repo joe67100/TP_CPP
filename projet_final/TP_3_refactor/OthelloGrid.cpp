@@ -13,14 +13,14 @@ OthelloGrid::~OthelloGrid()
 {
 }
 
-bool OthelloGrid::setToken(const int _playerId, const int _column, const int _lines)
+bool OthelloGrid::setToken(const int _playerId, const Token& _token)
 {
-	if (isCaseEmpty(_lines, _column))
+	if (isValidMove(_token.line, _token.column, _playerId) || isCaseEmpty(_token.line, _token.column))
 	{
-		grid[_lines][_column] = _playerId;
-		flippingColumn(_column, _lines, _playerId);
-		flippingLine(_column, _lines, _playerId);
-		flippingDiagonal(_column, _lines, _playerId);
+		grid[_token.line][_token.column] = _playerId;
+		flippingLine(_token.line, _token.column, _playerId);
+		flippingColumn(_token.line, _token.column, _playerId);
+		flippingDiagonal(_token.line, _token.column, _playerId);
 		return true;
 	}
 	return false;
